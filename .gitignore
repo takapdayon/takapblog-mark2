@@ -21,4 +21,6 @@ sketch
 
 .cache/
 public
+content/blog_back
+content/images
 __generated__
