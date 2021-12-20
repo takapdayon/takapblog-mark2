@@ -1,15 +1,44 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
-    title: "takapblog",
+    title: `takapblog`,
+    siteUrl: `https://takap.net`,
+    social: {
+      twitter: `takapdayon`,
+      github: `takapdayon`,
+    }
   },
   plugins: [
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-typegen`,
+    `gatsby-transformer-sharp`,
     {
-      resolve: "gatsby-plugin-google-analytics",
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        trackingId: "",
-      },
+        extensions: [`.md`, `.mdx`]
+      }
     },
-    "gatsby-plugin-react-helmet",
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: `blog`,
+        path: `${__dirname}/content/blog`,
+      }
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: `images`,
+        path: `${__dirname}/content/images`,
+      }
+    },
+    /*
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: ``,
+      },
+    },*/
   ],
 };
