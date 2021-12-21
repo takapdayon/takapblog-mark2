@@ -2,7 +2,7 @@ import * as React from 'react'
 import { graphql, PageProps } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import Layout from '../layouts/Layout';
+import Layout from '../layouts/layout';
 
 const BlogPost: React.VFC<PageProps<GatsbyTypes.BlogDataQuery>> = ({ data }) => {
   const image = getImage(data.mdx?.frontmatter?.image?.childImageSharp?.gatsbyImageData!)

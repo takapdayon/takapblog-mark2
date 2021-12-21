@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import * as React from 'react'
-import { Link, useStaticQuery, graphql } from 'gatsby'
+import { Link } from 'gatsby'
+import { useSiteMetadata } from '../utils/hooks'
 import {
   container,
   heading,
@@ -12,20 +13,11 @@ import {
 
 
 const Layout: React.VFC<Props> = ({ pageTitle, children }) => {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
+  const { site } = useSiteMetadata()
   return (
     <div className={container}>
-      <title>{pageTitle} | {data.site.siteMetadata.title}</title>
-      <header className={siteTitle}>{data.site.siteMetadata.title}</header>
+      <title>{pageTitle} | {site?.siteMetadata?.title}</title>
+      <header className={siteTitle}>{site?.siteMetadata?.title}</header>
       <nav>
         <ul className={navLinks}>
           <li className={navLinkItem}>
