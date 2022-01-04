@@ -4,7 +4,7 @@ import 'twin.macro';
 const Header: React.FC = () => {
   return (
     <footer>
-      <div tw="flex justify-center">
+      <div tw="bg-gray-900 mt-12 flex justify-center">
         <div>01</div>
         <div>02</div>
         <div>03</div>
