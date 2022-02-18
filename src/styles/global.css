@@ -1,3 +1,62 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/*Thin*/
+@font-face {
+  font-family: 'Noto Sans JP';
+  src: url('/font/NotoSansJP-Thin.otf') format('opentype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+/*Light*/
+@font-face {
+  font-family: 'Noto Sans JP';
+  src: url('/font/NotoSansJP-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+/*Regular*/
+@font-face {
+  font-family: 'Noto Sans JP';
+  src: url('/font/NotoSansJP-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+/*Midium*/
+@font-face {
+  font-family: 'Noto Sans JP';
+  src: url('/font/NotoSansJP-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+/*Bold*/
+@font-face {
+  font-family: 'Noto Sans JP';
+  src: url('/font/NotoSansJP-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/*Black*/
+@font-face {
+  font-family: 'Noto Sans JP';
+  src: url('/font/NotoSansJP-Black.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+body {
+  font-family: 'Noto Sans JP';
+}
+
+a,
+a:visited,
+a:hover,
+a:active {
+  color: inherit;
+}

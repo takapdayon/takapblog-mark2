@@ -1,2 +1,2 @@
 import "./src/styles/global.css"
-import "normalize.css"
+import "minireset.css"
