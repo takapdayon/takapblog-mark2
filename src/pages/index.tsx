@@ -1,24 +1,14 @@
-// Step 1: Import React
 import * as React from 'react'
 import { graphql, Link, PageProps } from 'gatsby'
 import Layout from '../layouts/layout'
+import CardList from '../components/CardList'
 
-// Step 2: Define your component
-const IndexPage: React.VFC<PageProps<GatsbyTypes.AllBlogsQuery>> = ({data}) => {
+const IndexPage: React.VFC<PageProps<GatsbyTypes.AllBlogsQuery>> = ({ data }) => {
   return (
     <Layout pageTitle="My Blog Posts">
-      {
-        data.allMdx.nodes.map((node) => (
-          <article key={node.id}>
-            <h2>
-              <Link to={node.slug!}>
-                {node.frontmatter?.title}
-              </Link>
-            </h2>
-            <p>Posted: {node.frontmatter?.date}</p>
-          </article>
-        ))
-      }
+      <CardList
+        allBlogs={data}
+      />
     </Layout>
   )
 }
@@ -30,6 +20,12 @@ export const query = graphql`
         frontmatter {
           date(formatString: "MMMM D, YYYY")
           title
+          tags
+          image {
+            childImageSharp {
+              gatsbyImageData(layout: CONSTRAINED)
+            }
+          }
         }
         id
         slug
@@ -38,5 +34,4 @@ export const query = graphql`
   }
 `
 
-// Step 3: Export your component
 export default IndexPage
