@@ -1,14 +1,27 @@
-// Step 1: Import React
 import * as React from 'react'
+import { graphql, PageProps } from 'gatsby'
 import Layout from '../layouts/layout'
+import TagList from '../components/tagList'
 
-// Step 2: Define your component
-const TagPage = () => {
+const TagPage: React.VFC<PageProps<GatsbyTypes.AllTagsQuery>> = ({ data }) => {
   return (
-    <Layout pageTitle="Tag Me">
-      <p>Hi there! I'm the proud creator of this site, which I built with Gatsby.</p>
+    <Layout>
+      <TagList
+        allMdx={data.allMdx}
+      />
     </Layout>
   )
 }
-// Step 3: Export your component
+
+export const query = graphql`
+  query AllTags {
+    allMdx {
+      group(field: frontmatter___tags) {
+        fieldValue
+        totalCount
+      }
+    }
+  }
+`
+
 export default TagPage

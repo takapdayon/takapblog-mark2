@@ -26,7 +26,7 @@ const Header: React.FC = () => {
       'iconName': FaRegEnvelope,
       'uri': '',
     }
-  ]
+  ];
   return (
     <header tw="">
       <HeaderBorder>
@@ -75,7 +75,7 @@ const Header: React.FC = () => {
 }
 
 const HeaderBorder = tw.div`
-  container mx-auto px-0 md:px-4
+  container my-4 mx-auto px-0 md:px-4
 `
 
 export default Header;

@@ -1,5 +1,7 @@
 module.exports = {
-  content: [],
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
   theme: {
     fontFamily: {
       body: [
@@ -12,5 +14,8 @@ module.exports = {
     },
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
+  important: true,
 }

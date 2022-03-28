@@ -28,5 +28,6 @@ Glueにて、Pysparkを最近よく使っていたのですが、その際に
 
 ネストされたDFからフラットなDFにしたい場合
 ```python
-
+def test():
+    return "test"
 ```

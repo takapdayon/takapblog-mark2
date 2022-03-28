@@ -20,32 +20,26 @@ const Footer: React.FC = () => {
     },
     {
       'iconName': FaRegEnvelope,
-      'uri': '',
+      'uri': '/contact',
     }
   ]
   return (
-    <footer tw="">
+    <footer tw="mt-10">
       <FooterBorder>
-        <div tw="pt-3">
+        <div tw="my-3 pt-3">
           <ul tw="flex justify-center list-none">
-            <li tw="mx-4">
-              <FooterIcon
-                Icon={FaTwitter}
-                to={'https://twitter.com/takapdayon'}
-              />
-            </li>
-            <li tw="mx-4">
-              <FooterIcon
-                Icon={FaGithub}
-                to={'https://github.com/takapdayon'}
-              />
-            </li>
-            <li tw="mx-4">
-              <FooterIcon
-                Icon={FaRegEnvelope}
-                to={'/contact'}
-              />
-            </li>
+            {
+              icons.map((icon, i) => {
+                return (
+                  <li key={i} tw="mx-4">
+                  <FooterIcon
+                    Icon={icon.iconName}
+                    to={icon.uri}
+                  />
+                </li>
+                )
+              })
+            }
           </ul>
         </div>
         <hr tw="border-gray-700" />

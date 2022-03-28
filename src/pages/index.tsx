@@ -1,13 +1,13 @@
 import * as React from 'react'
-import { graphql, Link, PageProps } from 'gatsby'
+import { graphql, PageProps } from 'gatsby'
 import Layout from '../layouts/layout'
-import CardList from '../components/CardList'
+import CardList from '../components/cardList'
 
 const IndexPage: React.VFC<PageProps<GatsbyTypes.AllBlogsQuery>> = ({ data }) => {
   return (
-    <Layout pageTitle="My Blog Posts">
+    <Layout>
       <CardList
-        allBlogs={data}
+        allMdx={data.allMdx}
       />
     </Layout>
   )
@@ -18,9 +18,10 @@ export const query = graphql`
     allMdx(sort: {fields: frontmatter___date, order: DESC}) {
       nodes {
         frontmatter {
-          date(formatString: "MMMM D, YYYY")
+          date(formatString: "YYYY/MM/DD")
           title
           tags
+          description
           image {
             childImageSharp {
               gatsbyImageData(layout: CONSTRAINED)

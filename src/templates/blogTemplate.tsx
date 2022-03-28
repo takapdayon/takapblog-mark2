@@ -1,23 +1,32 @@
 import * as React from 'react'
 import { graphql, PageProps } from 'gatsby'
+import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import Layout from '../layouts/layout';
+import ArticleComponents from './articleComponents'
+import 'twin.macro';
 
-const BlogPost: React.VFC<PageProps<GatsbyTypes.BlogDataQuery>> = ({ data }) => {
+
+const BlogTemplate: React.VFC<PageProps<GatsbyTypes.BlogDataQuery>> = ({ data }) => {
   const image = getImage(data.mdx?.frontmatter?.image?.childImageSharp?.gatsbyImageData!)
   const title = data.mdx?.frontmatter?.title || 'title'
   const date = data.mdx?.frontmatter?.date!
   return (
-    <Layout pageTitle={title}>
-      <p>{date}</p>
-      <GatsbyImage
-        image={image!}
-        alt={title}
-      />
-      <MDXRenderer frontmatter={data.mdx?.frontmatter}>
-        {data.mdx?.body!}
-      </MDXRenderer>
+    <Layout>
+      <div>
+        <GatsbyImage
+          image={image!}
+          alt={title}
+        />
+        <article tw="prose">
+          <MDXProvider components={ArticleComponents}>
+            <MDXRenderer frontmatter={data.mdx?.frontmatter}>
+              {data.mdx?.body!}
+            </MDXRenderer>
+          </MDXProvider>
+        </article>
+      </div>
     </Layout>
   )
 }
@@ -39,4 +48,4 @@ export const query = graphql`
   }
 `
 
-export default BlogPost
+export default BlogTemplate
