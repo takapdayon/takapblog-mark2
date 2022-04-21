@@ -19,7 +19,7 @@ const BlogTemplate: React.VFC<PageProps<GatsbyTypes.BlogDataQuery>> = ({ data })
           image={image!}
           alt={title}
         />
-        <article tw="prose">
+        <article tw="prose lg:prose md:prose-sm sm:prose-sm max-w-none!">
           <MDXProvider components={ArticleComponents}>
             <MDXRenderer frontmatter={data.mdx?.frontmatter}>
               {data.mdx?.body!}

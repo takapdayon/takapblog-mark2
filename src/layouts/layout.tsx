@@ -4,14 +4,14 @@ import { Link } from 'gatsby';
 import { useSiteMetadata } from '../utils/utils';
 import Footer from '../components/footer';
 import Header from '../components/header';
-
+import 'twin.macro';
 
 const Layout: React.VFC<Props> = ({ children }) => {
   const { site } = useSiteMetadata()
   return (
-    <div>
+    <div tw="container mx-auto px-0 sm:px-3 2xl:px-6">
       <Header />
-      <main>
+      <main tw="py-16">
         {children}
       </main>
       <Footer />
