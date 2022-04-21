@@ -19,24 +19,32 @@ module.exports = {
       options: {
         gatsbyRemarkPlugins: [
           {
-            resolve: "gatsby-remark-prismjs",
+            resolve: `gatsby-remark-prismjs-title`,
           },
           {
-            resolve: "gatsby-remark-prismjs-title",
+            resolve: `gatsby-remark-prismjs`,
+          },
+          {
+            resolve: `gatsby-remark-autolink-headers`,
+          },
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+            }
           }
         ],
         extensions: [`.md`, `.mdx`],
       }
     },
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: `gatsby-source-filesystem`,
       options: {
         name: `blog`,
         path: `${__dirname}/content/blog`,
       }
     },
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: `${__dirname}/content/images`,
