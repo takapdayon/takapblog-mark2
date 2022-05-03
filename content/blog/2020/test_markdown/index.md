@@ -48,7 +48,7 @@ __太字__
 >>でも、何気に「アイアンボトム・サウンド」って、
 >>ホントに怖い言葉よね?
 
-```python
+```python:title=pythonfile
 def test(testint):
     return "test" + str(testint)
 print(test(1))
@@ -67,6 +67,13 @@ print(test(1))
 ![okayu](http://i.imgur.com/Jjwsc.jpg)
 
 ![test](/title6.jpg)
+
+<details>
+<summary><b>My section header in bold</b></summary>
+
+## Any folded content here. It requires an empty line just above it.
+
+</details>
 
 ---
 ***
