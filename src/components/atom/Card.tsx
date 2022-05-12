@@ -2,6 +2,7 @@ import * as React from 'react';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { Link } from 'gatsby';
 import { getPathfromTag } from '../../utils/utils'
+import { FaTag } from "@react-icons/all-files/fa/FaTag"
 import 'twin.macro';
 import tw from 'twin.macro';
 
@@ -33,7 +34,7 @@ const Card: React.FC<Props> = (props) => {
             tags.map((tag) => {
               return (
                 <Link tw="inline bg-gray-300 mr-2 py-1 px-2 rounded-full text-xs lowercase text-gray-700" to={getPathfromTag(tag)} key={tag}>
-                  #{tag}
+                  <FaTag size={10}/>{tag}
                 </Link>
               )
             })

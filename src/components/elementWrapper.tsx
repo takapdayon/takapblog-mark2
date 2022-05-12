@@ -1,7 +1,7 @@
 import * as React from 'react';
 import 'twin.macro';
 
-const PageWrapper: React.FC<Props> = ({ children }) => {
+const ElementWrapper: React.FC<Props> = ({ children }) => {
   return(
     <div tw="container mx-auto px-0 sm:px-3 2xl:px-6">
       { children }
@@ -13,4 +13,4 @@ type Props = {
   children: React.ReactNode;
 };
 
-export default PageWrapper;
+export default ElementWrapper;

@@ -11,9 +11,9 @@ const Layout: React.VFC<Props> = ({ children }) => {
   return (
     <div tw="container mx-auto px-0 sm:px-3 2xl:px-6">
       <Header />
-      <main tw="py-16">
-        {children}
-      </main>
+        <main tw="py-16">
+          {children}
+        </main>
       <Footer />
     </div>
   )

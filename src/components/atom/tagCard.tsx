@@ -1,6 +1,4 @@
 import * as React from 'react';
-import { GatsbyImage } from 'gatsby-plugin-image';
-import { Link } from 'gatsby';
 import { IconType } from '@react-icons/all-files'
 import 'twin.macro';
 import tw from 'twin.macro';

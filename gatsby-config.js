@@ -22,10 +22,14 @@ module.exports = {
             resolve: `gatsby-remark-prismjs-title`,
           },
           {
-            resolve: `gatsby-remark-prismjs`,
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              enableCustomId: true,
+              //elements: [`h1`, `h2`]
+            }
           },
           {
-            resolve: `gatsby-remark-autolink-headers`,
+            resolve: `gatsby-remark-prismjs`,
           },
           {
             resolve: `gatsby-remark-images`,

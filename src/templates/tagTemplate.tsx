@@ -2,6 +2,7 @@ import * as React from 'react'
 import { graphql, PageProps } from 'gatsby'
 import Layout from '../layouts/layout'
 import CardList from '../components/cardList'
+import { FaTag } from "@react-icons/all-files/fa/FaTag"
 import 'twin.macro';
 import tw from 'twin.macro';
 
@@ -9,7 +10,7 @@ const TagTemplate: React.VFC<PageProps<GatsbyTypes.TagDataQuery, pageContext>> =
   const tag = pageContext.tag
   return (
     <Layout>
-      <TagTitle># {tag}</TagTitle>
+      <TagTitle><FaTag size={30} /> {tag}</TagTitle>
       <CardList
         allMdx={data.allMdx}
       />

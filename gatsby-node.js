@@ -24,13 +24,41 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   const result = await graphql(`
     {
-      allMdx {
+      allMdx(sort: {fields: frontmatter___date, order: DESC}){
         edges {
           node {
             id
             slug
             frontmatter {
               title
+            }
+          }
+          next {
+            id
+            slug
+            frontmatter {
+              title
+              tags
+              date(formatString: "YYYY/MM/DD")
+              image {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+            }
+          }
+          previous {
+            id
+            slug
+            frontmatter {
+              title
+              tags
+              date(formatString: "YYYY/MM/DD")
+              image {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
             }
           }
         }
@@ -50,12 +78,14 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   const blogs = result.data.allMdx.edges
 
-  blogs.forEach(({ node }) => {
+  blogs.forEach(({ node, next, previous }) => {
     createPage({
       path: node.slug,
       component: blogPostTemplate,
       context: {
         id: node.id,
+        next,
+        previous
       }
     })
   })

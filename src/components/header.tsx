@@ -1,7 +1,7 @@
 import { FaTwitter } from "@react-icons/all-files/fa/FaTwitter"
 import { FaGithub } from "@react-icons/all-files/fa/FaGithub"
 import { FaRegEnvelope } from "@react-icons/all-files/fa/FaRegEnvelope"
-import { FaHashtag } from "@react-icons/all-files/fa/FaHashtag"
+import { FaTags } from "@react-icons/all-files/fa/FaTags"
 import { FaPortrait } from "@react-icons/all-files/fa/FaPortrait"
 import { FaRegMoon } from "@react-icons/all-files/fa/FaRegMoon"
 import { FaSearch } from "@react-icons/all-files/fa/FaSearch"
@@ -46,12 +46,14 @@ const Header: React.FC = () => {
               </li>
               <li tw="mx-4">
                 <FooterIcon
-                  Icon={FaHashtag}
+                  Icon={FaTags}
                   to={'/tag'}
                 />
               </li>
             </ul>
           </div>
+          {
+            /*
           <div tw="">
             <ul tw="flex justify-center list-none items-center">
               <li tw="mx-4">
@@ -68,6 +70,8 @@ const Header: React.FC = () => {
               </li>
             </ul>
           </div>
+            */
+          }
         </div>
       </HeaderBorder>
     </header>

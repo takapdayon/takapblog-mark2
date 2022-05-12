@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { graphql, Link, PageProps } from 'gatsby'
-import { FaReact } from "@react-icons/all-files/fa/FaReact"
 import TagCard from './atom/tagCard';
 import { getPathfromTag } from '../utils/utils'
 import { takeTagImage } from '../utils/tagData'
@@ -16,8 +15,8 @@ const TagList: React.FC<Pick<GatsbyTypes.AllTagsQuery, 'allMdx'>> = ({ allMdx })
             <article key={tag.fieldValue}>
               <Link to={getPathfromTag(tag.fieldValue!)}>
                 <TagCard
-                  Icon={takeTagImage(tag.fieldValue)}
-                  name={tag.fieldValue}
+                  Icon={takeTagImage(tag.fieldValue!)}
+                  name={tag.fieldValue!}
                   count={tag.totalCount}
                 />
               </Link>
