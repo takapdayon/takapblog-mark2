@@ -1,0 +1,8 @@
+.cache
+.eslintrc.json
+tsconfig.json
+package.json
+package-lock.json
+public
+static
+src/__generated__
