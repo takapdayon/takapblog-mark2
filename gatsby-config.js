@@ -5,7 +5,7 @@ module.exports = {
     social: {
       twitter: `takapdayon`,
       github: `takapdayon`,
-    }
+    },
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -26,46 +26,33 @@ module.exports = {
             options: {
               enableCustomId: true,
               //elements: [`h1`, `h2`]
-            }
+            },
           },
           {
             resolve: `gatsby-remark-prismjs`,
           },
           {
             resolve: `gatsby-remark-images`,
-            options: {
-            }
-          }
+            options: {},
+          },
         ],
         extensions: [`.md`, `.mdx`],
-      }
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `blog`,
         path: `${__dirname}/content/blog`,
-      }
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: `${__dirname}/content/images`,
-      }
+      },
     },
-    {
-      resolve: `gatsby-plugin-eslint`,
-      options: {
-        test: /\.js$|\.jsx$|\.ts$|\.tsx$/,
-        exclude: /(node_modules|.cache|public)/,
-        stages: ['develop'],
-        options: {
-          emitWarning: true,
-          failOnError: false
-        }
-      }
-    }
     /*
     {
       resolve: `gatsby-plugin-google-analytics`,

@@ -12,6 +12,10 @@ module.exports = {
     container: {
       center: true,
     },
+    backgroundColor: theme => ({
+      ...theme('colors'),
+      'primary': '#CBD5E0'
+    }),
     extend: {},
   },
   plugins: [

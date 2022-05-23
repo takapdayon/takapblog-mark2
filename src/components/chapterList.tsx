@@ -17,11 +17,11 @@ export type TocItems = {
 const Items: React.FC<ItemsProps> = ({ tableOfContents, depth }) => {
   return (
     <ul>
-      {tableOfContents.map((item) => (
+      {tableOfContents.map(item => (
         <li
           key={item.url}
           style={{
-            paddingLeft: depth !== 0 ? "1em" : "0",
+            paddingLeft: depth !== 0 ? '1em' : '0',
           }}
         >
           <a href={item.url}>{item.title}</a>
@@ -35,16 +35,16 @@ const Items: React.FC<ItemsProps> = ({ tableOfContents, depth }) => {
 };
 
 const ChapterList: React.FC<Props> = ({ tableOfContents }) => {
-  return(
+  return (
     <div>
       目次
       <Items tableOfContents={tableOfContents} depth={0} />
     </div>
-  )
-}
+  );
+};
 
 type Props = {
   tableOfContents: TocItems[];
-}
+};
 
 export default ChapterList;

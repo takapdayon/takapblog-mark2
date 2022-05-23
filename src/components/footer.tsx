@@ -1,45 +1,41 @@
-import { FaTwitter } from "@react-icons/all-files/fa/FaTwitter"
-import { FaGithub } from "@react-icons/all-files/fa/FaGithub"
-import { FaRegEnvelope } from "@react-icons/all-files/fa/FaRegEnvelope"
+import { FaTwitter } from '@react-icons/all-files/fa/FaTwitter';
+import { FaGithub } from '@react-icons/all-files/fa/FaGithub';
+import { FaRegEnvelope } from '@react-icons/all-files/fa/FaRegEnvelope';
 
 import * as React from 'react';
 import 'twin.macro';
 import tw from 'twin.macro';
 
-import FooterIcon from './atom/footerIcon'
+import FooterIcon from './atom/footerIcon';
 
 const Footer: React.FC = () => {
   const icons = [
     {
-      'iconName': FaTwitter,
-      'uri': 'https://twitter.com/takapdayon'
+      iconName: FaTwitter,
+      uri: 'https://twitter.com/takapdayon',
     },
     {
-      'iconName': FaGithub,
-      'uri': 'https://github.com/takapdayon',
+      iconName: FaGithub,
+      uri: 'https://github.com/takapdayon',
     },
     {
-      'iconName': FaRegEnvelope,
-      'uri': '/contact',
-    }
-  ]
+      iconName: FaRegEnvelope,
+      uri: '/contact',
+    },
+  ];
+
   return (
     <footer tw="mt-10">
       <FooterBorder>
         <div tw="my-3 pt-3">
           <ul tw="flex justify-center list-none">
-            {
-              icons.map((icon, i) => {
-                return (
-                  <li key={i} tw="mx-4">
-                  <FooterIcon
-                    Icon={icon.iconName}
-                    to={icon.uri}
-                  />
+            {icons.map((icon, i) => {
+              return (
+                <li key={i} tw="mx-4">
+                  <FooterIcon Icon={icon.iconName} to={icon.uri} />
                 </li>
-                )
-              })
-            }
+              );
+            })}
           </ul>
         </div>
         <hr tw="border-gray-700" />
@@ -48,19 +44,18 @@ const Footer: React.FC = () => {
         </CopyRightFooter>
       </FooterBorder>
     </footer>
-  )
-}
+  );
+};
 
 const FooterBorder = tw.div`
   container mx-auto px-0 md:px-4
-`
+`;
 
 const CopyRightFooter = tw.div`
   flex justify-center mt-3 pb-3
-`
+`;
 
 export default Footer;
-
 
 /*
       <a href="#!" class="mr-9 text-gray-800">

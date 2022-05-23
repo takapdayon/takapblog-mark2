@@ -1,4 +1,4 @@
-import { IconType } from '@react-icons/all-files'
+import { IconType } from '@react-icons/all-files';
 import * as React from 'react';
 import 'twin.macro';
 import { StaticImage } from 'gatsby-plugin-image';
@@ -13,7 +13,7 @@ const AvatarIcon: React.FC = () => {
         tw="rounded-full h-14 w-14 flex items-center justify-center"
       />
     </div>
-  )
-}
+  );
+};
 
 export default AvatarIcon;
