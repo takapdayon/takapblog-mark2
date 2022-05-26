@@ -1,17 +1,18 @@
-import * as React from 'react'
-import { graphql, PageProps } from 'gatsby'
-import Layout from '../layouts/layout'
-import TagList from '../components/tagList'
+import * as React from 'react';
+import { graphql, PageProps } from 'gatsby';
+import Layout from '../layouts/layout';
+import TagList from '../components/tagList';
+import ContainerWrapper from '../components/containerWrapper';
 
 const TagPage: React.VFC<PageProps<GatsbyTypes.AllTagsQuery>> = ({ data }) => {
   return (
     <Layout>
-      <TagList
-        allMdx={data.allMdx}
-      />
+      <ContainerWrapper>
+        <TagList allMdx={data.allMdx} />
+      </ContainerWrapper>
     </Layout>
-  )
-}
+  );
+};
 
 export const query = graphql`
   query AllTags {
@@ -22,6 +23,6 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
-export default TagPage
+export default TagPage;

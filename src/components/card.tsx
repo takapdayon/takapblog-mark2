@@ -1,10 +1,9 @@
 import * as React from 'react';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { Link } from 'gatsby';
-import { getPathfromTag } from '../../utils/utils';
-import { FaTag } from '@react-icons/all-files/fa/FaTag';
 import 'twin.macro';
 import tw from 'twin.macro';
+import TagsElementWrapper from './tagsElementWrapper';
 
 const Card: React.FC<Props> = props => {
   const { title, image, date, description, tags, path } = props;
@@ -31,35 +30,18 @@ const Card: React.FC<Props> = props => {
         <div tw="text-gray-600 text-sm leading-relaxed block md:text-xs lg:text-sm">
           {description}
         </div>
-        <div tw="relative mt-2 lg:absolute bottom-0 mb-4 md:hidden lg:block">
-          {tags.map(tag => {
-            return (
-              <Link
-                tw="inline bg-gray-300 mr-2 py-1 px-2 rounded-full text-xs lowercase text-gray-700"
-                to={getPathfromTag(tag)}
-                key={tag}
-              >
-                <FaTag size={10} />
-                {tag}
-              </Link>
-            );
-          })}
-        </div>
+        <TagsElementWrapper tags={tags} />
       </div>
     </div>
   );
 };
-
-const CardConstruct = tw.div`
-
-`;
 
 type Props = {
   title: string;
   image: Pick<GatsbyTypes.ImageSharp, 'gatsbyImageData'>;
   date: string;
   description: string;
-  tags: Array<string>;
+  tags: GatsbyTypes.Maybe<readonly GatsbyTypes.Maybe<string>[]>;
   path?: string;
 };
 

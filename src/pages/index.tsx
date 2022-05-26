@@ -1,21 +1,24 @@
-import * as React from 'react'
-import { graphql, PageProps } from 'gatsby'
-import Layout from '../layouts/layout'
-import CardList from '../components/cardList'
+import * as React from 'react';
+import { graphql, PageProps } from 'gatsby';
+import Layout from '../layouts/layout';
+import CardList from '../components/cardList';
+import ContainerWrapper from '../components/ContainerWrapper';
 
-const IndexPage: React.VFC<PageProps<GatsbyTypes.AllBlogsQuery>> = ({ data }) => {
+const IndexPage: React.VFC<PageProps<GatsbyTypes.AllBlogsQuery>> = ({
+  data,
+}) => {
   return (
     <Layout>
-      <CardList
-        allMdx={data.allMdx}
-      />
+      <ContainerWrapper>
+        <CardList allMdx={data.allMdx} />
+      </ContainerWrapper>
     </Layout>
-  )
-}
+  );
+};
 
 export const query = graphql`
   query AllBlogs {
-    allMdx(sort: {fields: frontmatter___date, order: DESC}) {
+    allMdx(sort: { fields: frontmatter___date, order: DESC }) {
       nodes {
         frontmatter {
           date(formatString: "YYYY/MM/DD")
@@ -33,6 +36,6 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
-export default IndexPage
+export default IndexPage;

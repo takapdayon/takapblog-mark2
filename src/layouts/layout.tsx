@@ -7,24 +7,22 @@ import Header from '../components/header';
 import 'twin.macro';
 
 const Layout: React.VFC<Props> = ({ children }) => {
-  const { site } = useSiteMetadata()
+  const { site } = useSiteMetadata();
   return (
-    <div tw="container mx-auto px-0 sm:px-3 2xl:px-6">
+    <div>
       <Header />
-        <main tw="py-16">
-          {children}
-        </main>
+      <main tw="py-16">{children}</main>
       <Footer />
     </div>
-  )
-}
+  );
+};
 
 type Props = {
   children?: React.ReactNode;
-}
+};
 
 Layout.propTypes = {
   children: PropTypes.element.isRequired,
-}
+};
 
-export default Layout
+export default Layout;

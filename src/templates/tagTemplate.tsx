@@ -1,26 +1,31 @@
-import * as React from 'react'
-import { graphql, PageProps } from 'gatsby'
-import Layout from '../layouts/layout'
-import CardList from '../components/cardList'
-import { FaTag } from "@react-icons/all-files/fa/FaTag"
+import * as React from 'react';
+import { graphql, PageProps } from 'gatsby';
+import Layout from '../layouts/layout';
+import CardList from '../components/cardList';
+import { FaTag } from '@react-icons/all-files/fa/FaTag';
 import 'twin.macro';
 import tw from 'twin.macro';
+import ContainerWrapper from '../components/containerWrapper';
 
-const TagTemplate: React.VFC<PageProps<GatsbyTypes.TagDataQuery, pageContext>> = ({ data, pageContext }) => {
-  const tag = pageContext.tag
+const TagTemplate: React.VFC<
+  PageProps<GatsbyTypes.TagDataQuery, pageContext>
+> = ({ data, pageContext }) => {
+  const tag = pageContext.tag;
   return (
     <Layout>
-      <TagTitle><FaTag size={30} /> {tag}</TagTitle>
-      <CardList
-        allMdx={data.allMdx}
-      />
+      <ContainerWrapper>
+        <TagTitle>
+          <FaTag size={30} /> {tag}
+        </TagTitle>
+        <CardList allMdx={data.allMdx} />
+      </ContainerWrapper>
     </Layout>
-  )
-}
+  );
+};
 
 type pageContext = {
-  tag: string
-}
+  tag: string;
+};
 
 const TagTitle = tw.h1`
   text-3xl sm:text-5xl font-bold mx-auto px-0 sm:px-3 2xl:px-6 pb-6
@@ -29,8 +34,8 @@ const TagTitle = tw.h1`
 export const query = graphql`
   query TagData($tag: String) {
     allMdx(
-      filter: {frontmatter: {tags: {eq: $tag}}}
-      sort: {fields: frontmatter___date, order: DESC}
+      filter: { frontmatter: { tags: { eq: $tag } } }
+      sort: { fields: frontmatter___date, order: DESC }
     ) {
       nodes {
         frontmatter {
@@ -51,6 +56,6 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
-export default TagTemplate
+export default TagTemplate;
