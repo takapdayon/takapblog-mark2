@@ -1,16 +1,18 @@
 import PropTypes from 'prop-types';
 import * as React from 'react';
-import { Link } from 'gatsby';
 import { useSiteMetadata } from '../utils/utils';
 import Footer from '../components/footer';
 import Header from '../components/header';
 import 'twin.macro';
+import tw from 'twin.macro';
 
 const Layout: React.VFC<Props> = ({ children }) => {
   const { site } = useSiteMetadata();
   return (
     <div>
-      <Header />
+      <HeaderLayout>
+        <Header />
+      </HeaderLayout>
       <main tw="py-16">{children}</main>
       <Footer />
     </div>
@@ -24,5 +26,9 @@ type Props = {
 Layout.propTypes = {
   children: PropTypes.element.isRequired,
 };
+
+const HeaderLayout = tw.div`
+  mt-5
+`;
 
 export default Layout;

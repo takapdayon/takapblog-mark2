@@ -12,6 +12,7 @@ import 'twin.macro';
 import tw from 'twin.macro';
 import TagsElementWrapper from '../components/tagsElementWrapper';
 import ContainerWrapper from '../components/containerWrapper';
+import FlameWrapper from '../components/flameWrapper';
 
 type tableOfContentsType = {
   items: TocItems[];
@@ -39,20 +40,24 @@ const BlogTemplate: React.VFC<
       <ContainerWrapper>
         <div tw="grid grid-cols-1 lg:(grid-cols-12 gap-9)">
           <div tw="lg:col-span-8 xl:col-span-9">
-            <h1 tw="font-bold text-2xl sm:text-3xl lg:text-4xl mb-6">
-              {title}
-            </h1>
-            <p>{date}</p>
-            <TagsElementWrapper tags={tags} />
-            <GatsbyImage image={image!} alt={title} />
-            <article tw="prose lg:prose md:prose-sm sm:prose-sm max-w-none!">
-              <MDXProvider components={ArticleComponents}>
-                <MDXRenderer frontmatter={data.mdx?.frontmatter}>
-                  {data.mdx?.body!}
-                </MDXRenderer>
-              </MDXProvider>
-            </article>
-            <PrevAndNextBlog next={next} previous={previous} />
+            <FlameWrapper>
+              <h1 tw="font-bold text-2xl sm:text-3xl lg:text-4xl mb-6">
+                {title}
+              </h1>
+              <p>{date}</p>
+              <TagsElementWrapper tags={tags} />
+              <GatsbyImage image={image!} alt={title} />
+              <article tw="prose lg:prose md:prose-sm sm:prose-sm max-w-none!">
+                <MDXProvider components={ArticleComponents}>
+                  <MDXRenderer frontmatter={data.mdx?.frontmatter}>
+                    {data.mdx?.body!}
+                  </MDXRenderer>
+                </MDXProvider>
+              </article>
+            </FlameWrapper>
+            <div tw="py-10">
+              <PrevAndNextBlog next={next} previous={previous} />
+            </div>
           </div>
           <div tw="hidden lg:(col-span-4 block) xl:col-span-3">
             <div tw="sticky top-2">

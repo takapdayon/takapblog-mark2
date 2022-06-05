@@ -8,7 +8,7 @@ const AvatarIcon: React.FC = () => {
   return (
     <div tw="text-center mb-3">
       <StaticImage
-        src="../../images/icon-takap2.png"
+        src="../../images/icon.png"
         alt="avatar"
         tw="rounded-full h-14 w-14 flex items-center justify-center"
       />
