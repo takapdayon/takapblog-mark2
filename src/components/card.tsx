@@ -4,12 +4,13 @@ import { Link } from 'gatsby';
 import 'twin.macro';
 import tw from 'twin.macro';
 import TagsElementWrapper from './tagsElementWrapper';
+import FlameWrapper from './flameWrapper';
 
 const Card: React.FC<Props> = props => {
   const { title, image, date, description, tags, path } = props;
 
   return (
-    <div tw="bg-white rounded-lg overflow-hidden shadow relative w-full shadow-lg hover:shadow-2xl transition-all">
+    <FlameWrapper hoverAction={true}>
       <Link to={path!}>
         <GatsbyImage
           tw="h-56 w-full object-cover object-center"
@@ -32,7 +33,7 @@ const Card: React.FC<Props> = props => {
         </div>
         <TagsElementWrapper tags={tags} />
       </div>
-    </div>
+    </FlameWrapper>
   );
 };
 

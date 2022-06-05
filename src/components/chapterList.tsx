@@ -2,6 +2,7 @@ import * as React from 'react';
 import styled from '@emotion/styled';
 import 'twin.macro';
 import tw from 'twin.macro';
+import FlameWrapper from './flameWrapper';
 
 type ItemsProps = {
   tableOfContents: TocItems[];
@@ -36,10 +37,10 @@ const Items: React.FC<ItemsProps> = ({ tableOfContents, depth }) => {
 
 const ChapterList: React.FC<Props> = ({ tableOfContents }) => {
   return (
-    <div>
+    <FlameWrapper>
       目次
       <Items tableOfContents={tableOfContents} depth={0} />
-    </div>
+    </FlameWrapper>
   );
 };
 
