@@ -41,19 +41,21 @@ const BlogTemplate: React.VFC<
         <div tw="grid grid-cols-1 lg:(grid-cols-12 gap-9)">
           <div tw="lg:col-span-8 xl:col-span-9">
             <FlameWrapper>
-              <h1 tw="font-bold text-2xl sm:text-3xl lg:text-4xl mb-6">
-                {title}
-              </h1>
-              <p>{date}</p>
-              <TagsElementWrapper tags={tags} />
-              <GatsbyImage image={image!} alt={title} />
-              <article tw="prose lg:prose md:prose-sm sm:prose-sm max-w-none!">
-                <MDXProvider components={ArticleComponents}>
-                  <MDXRenderer frontmatter={data.mdx?.frontmatter}>
-                    {data.mdx?.body!}
-                  </MDXRenderer>
-                </MDXProvider>
-              </article>
+              <div tw="p-5">
+                <h1 tw="font-bold text-2xl sm:text-3xl lg:text-4xl mb-6">
+                  {title}
+                </h1>
+                <p>{date}</p>
+                <TagsElementWrapper tags={tags} />
+                <GatsbyImage image={image!} alt={title} />
+                <article tw="prose lg:prose md:prose-sm sm:prose-sm max-w-none!">
+                  <MDXProvider components={ArticleComponents}>
+                    <MDXRenderer frontmatter={data.mdx?.frontmatter}>
+                      {data.mdx?.body!}
+                    </MDXRenderer>
+                  </MDXProvider>
+                </article>
+              </div>
             </FlameWrapper>
             <div tw="py-10">
               <PrevAndNextBlog next={next} previous={previous} />

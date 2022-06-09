@@ -24,8 +24,11 @@ const Items: React.FC<ItemsProps> = ({ tableOfContents, depth }) => {
           style={{
             paddingLeft: depth !== 0 ? '1em' : '0',
           }}
+          tw="mb-1"
         >
-          <a href={item.url}>{item.title}</a>
+          <div tw="mb-1">
+            <a href={item.url}>{item.title}</a>
+          </div>
           {item.items && (
             <Items tableOfContents={item.items} depth={depth + 1} />
           )}
@@ -38,8 +41,12 @@ const Items: React.FC<ItemsProps> = ({ tableOfContents, depth }) => {
 const ChapterList: React.FC<Props> = ({ tableOfContents }) => {
   return (
     <FlameWrapper>
-      目次
-      <Items tableOfContents={tableOfContents} depth={0} />
+      <div tw="p-5">
+        <p tw="text-2xl mb-3">項目</p>
+        <div tw="ml-2">
+          <Items tableOfContents={tableOfContents} depth={0} />
+        </div>
+      </div>
     </FlameWrapper>
   );
 };
