@@ -31,7 +31,9 @@ const Card: React.FC<Props> = props => {
         <div tw="text-gray-600 text-sm leading-relaxed block md:text-xs lg:text-sm">
           {description}
         </div>
-        <TagsElementWrapper tags={tags} />
+        <div tw="lg:absolute bottom-0 my-4">
+          <TagsElementWrapper tags={tags} />
+        </div>
       </div>
     </FlameWrapper>
   );

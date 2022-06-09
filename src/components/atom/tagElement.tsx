@@ -7,12 +7,14 @@ import tw from 'twin.macro';
 
 const TagElement: React.FC<Props> = ({ tagName, size = 10 }) => {
   return (
-    <TagWrapper>
-      <Link to={getPathfromTag(tagName)}>
-        <FaTag size={size} />
-        {tagName}
-      </Link>
-    </TagWrapper>
+    <WrapBack>
+      <TagWrapper>
+        <Link to={getPathfromTag(tagName)}>
+          <FaTag size={size} />
+          <TextSpan>{tagName}</TextSpan>
+        </Link>
+      </TagWrapper>
+    </WrapBack>
   );
 };
 
@@ -21,8 +23,16 @@ type Props = {
   size?: number;
 };
 
+const TextSpan = tw.span`
+  ml-0.5
+`;
+
+const WrapBack = tw.div`
+  rounded-full mr-2 py-1 px-2 bg-gray-300
+`;
+
 const TagWrapper = tw.div`
-  inline bg-gray-300 mr-2 py-1 px-2 rounded-full text-xs lowercase text-gray-700
+  flex items-center text-xs lowercase
 `;
 
 export default TagElement;

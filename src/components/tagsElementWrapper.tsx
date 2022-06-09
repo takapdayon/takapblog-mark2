@@ -19,7 +19,7 @@ type Props = {
 };
 
 const TagsWrapper = tw.div`
-  relative mt-2 bottom-0 mb-4 md:hidden lg:block
+  inline-flex justify-between
 `;
 
 export default TagsElementWrapper;
