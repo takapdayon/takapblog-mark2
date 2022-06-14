@@ -1,9 +1,9 @@
 ---
 title: pythonでsliceした際の挙動
-date: "2020-04-01T12:46:37.121Z"
+date: '2020-04-01T12:46:37.121Z'
 description: pythonにて文字列操作(slice)する際の気づき、ぼやきです。
-tags: ["python"]
-image: title.png
+tags: ['python']
+image: python-icon.png
 ---
 
 ## 概要
@@ -38,4 +38,3 @@ image: title.png
 
 ってやるっぽいですねー
 まぁ、言われてみれば当然っちゃ当然の挙動ですね。
-

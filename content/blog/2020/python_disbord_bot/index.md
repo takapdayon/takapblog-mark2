@@ -1,21 +1,22 @@
 ---
 title: dockerでdiscord bot開発環境構築
-date: "2020-03-03T12:46:37.121Z"
+date: '2020-03-03T12:46:37.121Z'
 description: dockerでdiscord botの開発環境を構築するための記事です。開発言語はpythonを前提に進めます。
-tags: ["esport","LOL"]
-image: discord.jpg
+tags: ['esport', 'LOL']
+image: discord-icon.png
 ---
 
 ## はじめに
 
-qiitaからの転載となります。
-[dockerでdiscord bot開発環境構築](https://qiita.com/takapp/items/abcf1f56285ba601b701)
+qiita からの転載となります。
+[docker で discord bot 開発環境構築](https://qiita.com/takapp/items/abcf1f56285ba601b701)
 
-ブログ記事かくのに慣れるため、qiitaで書いた記事を
+ブログ記事かくのに慣れるため、qiita で書いた記事を
 リメイクし再度こちらに投稿いたしました。
 
 ## 概要
-pythonとcode-serverのコンテナをdocker-composeを使い
+
+python と code-server のコンテナを docker-compose を使い
 開発環境を瞬時に作り上げます。
 
 ## 内容
@@ -47,42 +48,46 @@ RUN python -m pip install discord.py
 #### docker-compose.yml
 
 ```yml
-version: "3"
+version: '3'
 services:
   python:
     restart: always
     build: .
-    container_name: "python3"
-    working_dir: "/root/"
+    container_name: 'python3'
+    working_dir: '/root/'
     tty: true
     volumes:
       - ./app:/root/opt
   code:
     image: codercom/code-server:latest
     restart: always
-    user: "0:0"
+    user: '0:0'
     ports:
-      - "8080:8080"
+      - '8080:8080'
     command: ./code-server --auth none
     volumes:
       - ./app:/root/app
 ```
-qiita記事側のcode-server設定だと、編集等できない可能性
+
+qiita 記事側の code-server 設定だと、編集等できない可能性
 がありますので、こちら参照していただき作成してください
 
 ### 実行
 
-#### compose upする
+#### compose up する
 
 ```sh
 $docker-compose up -d
 ```
-pwは無効で設定してありますので
-http://localhost:8080
-にアクセスしていただければcode-serverに繋が流と思います
 
-### discord bot作成
-python側のボリュームでつなげたディレクトリ内に以下作成してください
+pw は無効で設定してありますので
+http://localhost:8080
+にアクセスしていただければ code-server に繋が流と思います
+
+### discord bot 作成
+
+python 側のボリュームでつなげたディレクトリ内に以下作成してください
+
 ```python
 import discord
 
@@ -103,8 +108,10 @@ async def on_message(message):
 client.run(TOKEN)
 ```
 
-### pythonコンテナ内で実行
-pythonコンテナに入り、上記で作成したdiscordbotを実行してみてください
+### python コンテナ内で実行
+
+python コンテナに入り、上記で作成した discordbot を実行してみてください
+
 ```shell
 $docker-compose exec python /bin/bash
 ```
@@ -112,4 +119,5 @@ $docker-compose exec python /bin/bash
 ```shell
 $python ファイル名.py
 ```
-実際discordにてbot導入し返答があれば成功です。
+
+実際 discord にて bot 導入し返答があれば成功です。

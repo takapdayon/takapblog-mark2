@@ -1,32 +1,35 @@
 ---
 title: DockerでlocalGlue開発環境構築
-date: "2021-03-31"
+date: '2021-03-31'
 description: Glueの開発をlocal環境で行うための環境構築について、と、おまけあるかも
-tags: ["docker","glue", "aws", "pyspark"]
-image: docker+glue.png
+tags: ['docker', 'glue', 'aws', 'pyspark']
+image: docker-glue-icon.png
 ---
 
-最近、お仕事でGlueを使った開発を行っていたため、備忘録として
+最近、お仕事で Glue を使った開発を行っていたため、備忘録として
 
-Glueの開発エンドポイントを使えない場合(料金的にも)localで開発することができます
-また、localstackと組み合わせることで、local開発のみでいろいろと試せるため、何かと便利です。
-今回はlocalstackのS3を用いて、localGlueで入出力を行いたいと思います
+Glue の開発エンドポイントを使えない場合(料金的にも)local で開発することができます
+また、localstack と組み合わせることで、local 開発のみでいろいろと試せるため、何かと便利です。
+今回は localstack の S3 を用いて、localGlue で入出力を行いたいと思います
 
 # 環境
-docker内で作業するため、あまり関係ないですが
 
-| | バージョン |
-----|----
-| windows | 10 |
-| docker | 20.10.5 |
-| docker-compose | 1.28.5 |
+docker 内で作業するため、あまり関係ないですが
 
-# GlueのDockerfile
-[AWS Glueの開発エンドポイントがそこそこお高いのでローカル開発環境を用意しました](https://future-architect.github.io/articles/20191101/)
-↑まんま用意されているので、こちらを使おうと思ったら、以下のようなエラーが出た
+|                | バージョン |
+| -------------- | ---------- |
+| windows        | 10         |
+| docker         | 20.10.5    |
+| docker-compose | 1.28.5     |
+
+# Glue の Dockerfile
+
+[AWS Glue の開発エンドポイントがそこそこお高いのでローカル開発環境を用意しました](https://future-architect.github.io/articles/20191101/)
+↑ まんま用意されているので、こちらを使おうと思ったら、以下のようなエラーが出た
 ![error](./error.png)
 
 ため、上記を少し修正しました
+
 ```Dockerfile
 FROM centos:7
 
@@ -82,11 +85,12 @@ RUN ./aws-glue-libs/bin/gluepyspark
 ENTRYPOINT ["/bin/sh", "-c", "while :; do sleep 10; done"]
 ```
 
-# docker-composeの設定
-上記Dockerfileとlocalstackを使うcomposeを定義します
+# docker-compose の設定
+
+上記 Dockerfile と localstack を使う compose を定義します
 
 ```yml
-version: "3"
+version: '3'
 services:
   localstack:
     container_name: localstack
@@ -103,8 +107,8 @@ services:
     container_name: glue
     build: .
     volumes:
-    # スクリプトを共有するフォルダ
-    - ./share:/share
+      # スクリプトを共有するフォルダ
+      - ./share:/share
     environment:
       - AWS_DEFAULT_REGION=us-east-1
       # GlueからLocalstackを用いる際に、access_keyとsecret_keyが同じになっている必要がある
@@ -112,26 +116,31 @@ services:
       - AWS_SECRET_ACCESS_KEY=hoge
 ```
 
-**localstackは、あるバージョンから各サービスのポートが一つにまとまってしまったためガラッと使用感が変わっているので注意してください**
+**localstack は、あるバージョンから各サービスのポートが一つにまとまってしまったためガラッと使用感が変わっているので注意してください**
 
-詳しくは[localstackのGithub](https://github.com/localstack/localstack)に乗っています(確か)
+詳しくは[localstack の Github](https://github.com/localstack/localstack)に乗っています(確か)
 
-↑乗ってました
+↑ 乗ってました
+
 > 2019-10-09: LocalStack Pro is out! We're incredibly excited to announce the launch of LocalStack Pro - the enterprise version of LocalStack with additional APIs and advanced features. Check out the free trial at https://localstack.cloud
 
-# Glueを使ってみる
-localGlueには[3つのスクリプト](https://docs.aws.amazon.com/ja_jp/glue/latest/dg/aws-glue-programming-etl-libraries.html#local-run-python-job)が用意されています
-* gluepyspark
-  * 対話モードでgluepysparkを動かしたいならこれ
-* gluesparksubmit
-  * スクリプト実行したいならこれ
-* gluepytest
-  * テストしたい場合これ
+# Glue を使ってみる
+
+localGlue には[3 つのスクリプト](https://docs.aws.amazon.com/ja_jp/glue/latest/dg/aws-glue-programming-etl-libraries.html#local-run-python-job)が用意されています
+
+- gluepyspark
+  - 対話モードで gluepyspark を動かしたいならこれ
+- gluesparksubmit
+  - スクリプト実行したいならこれ
+- gluepytest
+  - テストしたい場合これ
 
 今回は対話型を起動するまで、で
 
-### 1: glueイメージにアタッチする
-composeで立ち上げて、対象のimageにアタッチします
+### 1: glue イメージにアタッチする
+
+compose で立ち上げて、対象の image にアタッチします
+
 ```sh
 $ docker-compose up -d
 $ docker-compose exec glue ./bin/bash
@@ -139,7 +148,9 @@ $ docker-compose exec glue ./bin/bash
 ```
 
 ### 2: 対話型を立ち上げる
-アタッチしたパスからaws-glue-libs/bin/直下に上記3つのスクリプトがあります
+
+アタッチしたパスから aws-glue-libs/bin/直下に上記 3 つのスクリプトがあります
+
 ```sh
 [root@edfaf015156a /]# aws-glue-libs/bin/gluepyspark
 ...省略
@@ -154,16 +165,19 @@ Using Python version 3.6.8 (default, Nov 16 2020 16:55:22)
 SparkSession available as 'spark'.
 >>>
 ```
+
 上記のように出れば成功ですー
 
-# GlueでlocalstackS3を用いて入出力
-テスト用のcsvか何か用意してください
-おすすめはkaggleにある[ポケモンデータ](https://www.kaggle.com/abcsds/pokemon)です
+# Glue で localstackS3 を用いて入出力
 
-## バケット・データをlocalstackS3に用意する
-読み込むデータと、バケットをlocalstackのS3に用意します
+テスト用の csv か何か用意してください
+おすすめは kaggle にある[ポケモンデータ](https://www.kaggle.com/abcsds/pokemon)です
 
-方法は、aws cliを使う感覚と全く同じですが、後ろに[--endpoint-url](https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/cli-configure-options.html)パラメータを渡してあげないといけないです
+## バケット・データを localstackS3 に用意する
+
+読み込むデータと、バケットを localstack の S3 に用意します
+
+方法は、aws cli を使う感覚と全く同じですが、後ろに[--endpoint-url](https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/cli-configure-options.html)パラメータを渡してあげないといけないです
 
 ```sh
 # 4572ポートがs3
@@ -172,11 +186,12 @@ make_bucket: test-csv
 $ aws s3 cp Pokemon.csv s3://test-csv/ --endpoint-url="http://localhost:4572"
 upload: Pokemon.csv to s3://test-csv/Pokemon.csv
 ```
-これでlocalstackを用いたs3側の準備はOKです
 
+これで localstack を用いた s3 側の準備は OK です
 
 次にスクリプトです。
-注意点は**localGlueはfrom_catalogが使用できない**ということです
+注意点は**localGlue は from_catalog が使用できない**ということです
+
 ```py
 import sys
 import json
@@ -227,10 +242,11 @@ glue_context.write_dynamic_frame.from_options(
 job.commit()
 ```
 
-中身は[公式サンプル](https://github.com/awslabs/aws-glue-blueprint-libs)を参考に、localstack用に弄りました
-s3aとかs3nとかの違いは[こちら](https://aws.amazon.com/jp/premiumsupport/knowledge-center/emr-file-system-s3/)を参照ください
+中身は[公式サンプル](https://github.com/awslabs/aws-glue-blueprint-libs)を参考に、localstack 用に弄りました
+s3a とか s3n とかの違いは[こちら](https://aws.amazon.com/jp/premiumsupport/knowledge-center/emr-file-system-s3/)を参照ください
 
 次に、スクリプトとして実行します
+
 ```sh
 [root@edfaf015156a /]# aws-glue-libs/bin/gluesparksubmit /share/glue.py --JOB_NAME 'test'
 ...# 省略
@@ -241,16 +257,20 @@ s3aとかs3nとかの違いは[こちら](https://aws.amazon.com/jp/premiumsuppo
 21/04/05 14:41:16 INFO ShutdownHookManager: Deleting directory /tmp/spark-78c7a151-ac61-412e-bc92-eb1351e04f3a
 [root@edfaf015156a /]#
 ```
-Successfullyとなっていて、作業ディレクトリも削除されていることがlogで出力されます
+
+Successfully となっていて、作業ディレクトリも削除されていることが log で出力されます
 
 最後に中身を確認します
+
 ```
 [root@7e42382cfe7a /]# aws s3 ls s3://test-csv/write/ --endpoint-url="http://localstack:4572"
 2021-04-05 14:41:16      44230 run-1617633674695-part-r-00000
 ```
+
 中身確認しませんが、まぁ大丈夫でしょう!
 
 ## 参考資料
+
 [AWS Glue ETL ライブラリを使用した ETL スクリプトのローカルでの開発とテスト](https://docs.aws.amazon.com/ja_jp/glue/latest/dg/aws-glue-programming-etl-libraries.html)
 
-[AWS Glueの開発エンドポイントがそこそこお高いのでローカル開発環境を用意しました](https://future-architect.github.io/articles/20191101/)
+[AWS Glue の開発エンドポイントがそこそこお高いのでローカル開発環境を用意しました](https://future-architect.github.io/articles/20191101/)
