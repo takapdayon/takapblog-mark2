@@ -7,7 +7,7 @@ const PrevAndNextBlog: React.FC<Props> = ({ next, previous }) => {
   const pathNext = next?.slug;
   const pathPrev = previous?.slug;
   return (
-    <div tw="grid gap-12 lg:grid-cols-2">
+    <div tw="grid gap-4 lg:grid-cols-2">
       {previous && <ShortCard mdx={previous} />}
       {next && <ShortCard mdx={next} />}
     </div>

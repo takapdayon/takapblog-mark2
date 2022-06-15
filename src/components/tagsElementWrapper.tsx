@@ -8,7 +8,7 @@ const TagsElementWrapper: React.FC<Props> = ({ tags }) => {
     <TagsWrapper>
       {tags &&
         tags.map(tag => {
-          return tag && <TagElement tagName={tag} />;
+          return tag && <TagElement key={tag} tagName={tag} />;
         })}
     </TagsWrapper>
   );

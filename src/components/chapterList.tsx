@@ -18,22 +18,25 @@ export type TocItems = {
 const Items: React.FC<ItemsProps> = ({ tableOfContents, depth }) => {
   return (
     <ul>
-      {tableOfContents.map(item => (
-        <li
-          key={item.url}
-          style={{
-            paddingLeft: depth !== 0 ? '1em' : '0',
-          }}
-          tw="mb-1"
-        >
-          <div tw="mb-1">
-            <a href={item.url}>{item.title}</a>
+      {tableOfContents.map((item, i) => {
+        return (
+          <div key={i}>
+            <li
+              style={{
+                paddingLeft: depth !== 0 ? '1em' : '0',
+              }}
+              tw="mb-1"
+            >
+              <div tw="mb-1">
+                <a href={item.url}>{item.title}</a>
+              </div>
+              {item.items && (
+                <Items tableOfContents={item.items} depth={depth + 1} />
+              )}
+            </li>
           </div>
-          {item.items && (
-            <Items tableOfContents={item.items} depth={depth + 1} />
-          )}
-        </li>
-      ))}
+        );
+      })}
     </ul>
   );
 };

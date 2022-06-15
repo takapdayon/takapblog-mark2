@@ -45,9 +45,11 @@ const BlogTemplate: React.VFC<
                 <h1 tw="font-bold text-2xl sm:text-3xl lg:text-4xl mb-6">
                   {title}
                 </h1>
-                <p>{date}</p>
-                <TagsElementWrapper tags={tags} />
-                <GatsbyImage image={image!} alt={title} />
+                <p tw="mb-2">{date}</p>
+                <div tw="mb-2">
+                  <TagsElementWrapper tags={tags} />
+                </div>
+                <GatsbyImage image={image!} alt={title} tw="mb-20" />
                 <article tw="prose lg:prose md:prose-sm sm:prose-sm max-w-none!">
                   <MDXProvider components={ArticleComponents}>
                     <MDXRenderer frontmatter={data.mdx?.frontmatter}>

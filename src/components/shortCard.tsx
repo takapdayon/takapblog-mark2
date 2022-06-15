@@ -4,7 +4,6 @@ import * as React from 'react';
 import 'twin.macro';
 import tw from 'twin.macro';
 import FlameWrapper from './flameWrapper';
-import TakeImageOrNoImage from './takeImageOrNoImage';
 
 const ShortCard: React.FC<Props> = ({ mdx }) => {
   const title = mdx?.frontmatter?.title;
@@ -15,15 +14,11 @@ const ShortCard: React.FC<Props> = ({ mdx }) => {
     <FlameWrapper hoverAction={true}>
       <Link to={`/${path}`} tw="flex">
         {image && title && (
-          <GatsbyImage
-            tw="sm:h-full w-full sm:w-5/12 object-cover object-top rounded-lg transition duration-500 group-hover:rounded-xl"
-            image={image}
-            alt={title}
-          />
+          <GatsbyImage tw="w-1/2 object-cover" image={image} alt={title} />
         )}
-        <div tw="sm:w-6/12 pl-0 px-5">
-          <h4 tw="text-base font-semibold">{title}</h4>
-          <p tw="pt-2">{date}</p>
+        <div tw="w-1/2 pl-0 px-5">
+          <h4 tw="xl:text-base lg:text-xs font-semibold">{title}</h4>
+          <p tw="xl:text-base lg:text-xs pt-2">{date}</p>
         </div>
       </Link>
     </FlameWrapper>
