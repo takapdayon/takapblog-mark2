@@ -2,7 +2,7 @@
 title: vueでデプロイ先がサブディレクトリの場合
 date: '2020-08-31T12:46:37.121Z'
 description: デプロイ先がサブディレクトリの場合の変更点です
-tags: ['vue', 'cors', 'axios']
+tags: ['vue']
 image: vue-icon.png
 ---
 

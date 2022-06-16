@@ -2,7 +2,7 @@
 title: dockerでminecraftサーバ爆速構築
 date: '2020-03-03T23:46:37.121Z'
 description: dockerでminecraftサーバを爆速で構築します。一つできれば、あとはコピーで複数のサーバを同時構築可能です。
-tags: ['minecraft', 'docker']
+tags: ['game', 'docker']
 image: no-image.png
 ---
 
