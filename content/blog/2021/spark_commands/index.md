@@ -2,7 +2,7 @@
 title: Pysparkガチャガチャ集
 date: '2021-04-06'
 description: Pysparkを使った中で「あー、これどーやんだぁ」って思ったことをまとめておきました
-tags: ['spark', 'glue', 'aws', 'pyspark']
+tags: ['spark', 'aws', 'spark']
 image: no-image.png
 ---
 
