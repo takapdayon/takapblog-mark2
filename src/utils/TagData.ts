@@ -5,8 +5,11 @@ import { FaMarkdown } from "@react-icons/all-files/fa/FaMarkdown"
 import { FaVuejs } from "@react-icons/all-files/fa/FaVuejs"
 import { FaPython } from "@react-icons/all-files/fa/FaPython"
 import { DiDjango } from "@react-icons/all-files/di/DiDjango";
-import { GrGatsbyjs } from "@react-icons/all-files/gr/GrGatsbyjs";
-
+import { FaRegWindowClose } from "@react-icons/all-files/fa/FaRegWindowClose";
+import { FaGamepad } from "@react-icons/all-files/fa/FaGamepad";
+import { FaDocker } from "@react-icons/all-files/fa/FaDocker";
+import { FaDiscord } from "@react-icons/all-files/fa/FaDiscord";
+import { DiSpark } from "@react-icons/all-files/di/DiSpark";
 
 export const takeTagImage = (name: string): IconType => {
   const icon = takeTagInfo(name)
@@ -38,6 +41,22 @@ const takeTagInfo = (name: string): IconType => {
     {
       name: 'python',
       icon: FaPython
+    },
+    {
+      name: 'game',
+      icon: FaGamepad
+    },
+    {
+      name: 'docker',
+      icon: FaDocker
+    },
+    {
+      name: 'discord',
+      icon: FaDiscord
+    },
+    {
+      name: 'spark',
+      icon: DiSpark
     }
   ]
   const targetIcon = tagInfos.find(x => x.name === name)
@@ -45,7 +64,7 @@ const takeTagInfo = (name: string): IconType => {
   if (targetIcon) {
     icon = targetIcon.icon
   } else {
-    icon = GrGatsbyjs
+    icon = FaRegWindowClose
   }
   return icon
 }

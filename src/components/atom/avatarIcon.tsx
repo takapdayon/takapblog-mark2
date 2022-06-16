@@ -1,4 +1,3 @@
-import { IconType } from '@react-icons/all-files';
 import * as React from 'react';
 import 'twin.macro';
 import { StaticImage } from 'gatsby-plugin-image';
