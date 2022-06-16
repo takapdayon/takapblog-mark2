@@ -1,6 +1,5 @@
 import { FaTwitter } from '@react-icons/all-files/fa/FaTwitter';
 import { FaGithub } from '@react-icons/all-files/fa/FaGithub';
-import { FaRegEnvelope } from '@react-icons/all-files/fa/FaRegEnvelope';
 
 import * as React from 'react';
 import 'twin.macro';

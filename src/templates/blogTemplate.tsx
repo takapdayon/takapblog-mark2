@@ -13,6 +13,7 @@ import tw from 'twin.macro';
 import TagsElementWrapper from '../components/tagsElementWrapper';
 import ContainerWrapper from '../components/containerWrapper';
 import FlameWrapper from '../components/flameWrapper';
+import ProfileCard from '../components/profileCard';
 
 type tableOfContentsType = {
   items: TocItems[];
@@ -65,6 +66,9 @@ const BlogTemplate: React.VFC<
           </div>
           <div tw="hidden lg:(col-span-4 block) xl:col-span-3">
             <div tw="sticky top-2">
+              <div tw="mb-5">
+                <ProfileCard></ProfileCard>
+              </div>
               <ChapterList tableOfContents={tableOfContents.items} />
             </div>
           </div>
