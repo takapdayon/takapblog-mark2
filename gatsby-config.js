@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `takapblog`,
+    title: `takaplog`,
     siteUrl: `https://takap.net`,
     social: {
       twitter: `takapdayon`,
@@ -53,12 +53,23 @@ module.exports = {
         path: `${__dirname}/content/images`,
       },
     },
-    /*
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `takaplog`,
+        short_name: `takaplog`,
+        start_url: `/`,
+        background_color: `#f7f0eb`,
+        theme_color: `#a2466c`,
+        display: `minimal-ui`,
+        icon: `src/images/icon.png`,
+      },
+    },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: ``,
+        trackingId: [process.env.TRACKINGID],
       },
-    },*/
+    },
   ],
 };
