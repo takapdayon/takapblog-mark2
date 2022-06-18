@@ -1,5 +1,5 @@
 import { Link } from 'gatsby';
-import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import * as React from 'react';
 import 'twin.macro';
 import tw from 'twin.macro';

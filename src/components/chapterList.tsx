@@ -1,5 +1,4 @@
 import * as React from 'react';
-import styled from '@emotion/styled';
 import 'twin.macro';
 import tw from 'twin.macro';
 import FlameWrapper from './flameWrapper';

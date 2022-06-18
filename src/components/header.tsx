@@ -5,7 +5,6 @@ import * as React from 'react';
 import 'twin.macro';
 
 import FooterIcon from './atom/footerIcon';
-import AvatarIcon from './atom/avatarIcon';
 import ContainerWrapper from './containerWrapper';
 
 const Header: React.FC = () => {

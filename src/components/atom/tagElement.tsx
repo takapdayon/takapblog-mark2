@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Link } from 'gatsby';
 import { FaTag } from '@react-icons/all-files/fa/FaTag';
-import { getPathfromTag } from '/src/utils/utils';
+import { getPathfromTag } from '../../utils/utils';
 import 'twin.macro';
 import tw from 'twin.macro';
 
