@@ -50,22 +50,3 @@ const Profile = tw.div`
 `;
 
 export default ProfileCard;
-
-/*
-<div tw="w-full h-screen flex items-center justify-center bg-gray-200">
-    <div tw="relative w-96 h-auto bg-gray-400 rounded-md pt-24 pb-8 px-4 shadow-md hover:shadow-lg transition flex flex-col items-center">
-        <div tw="absolute rounded-full bg-gray-100 w-28 h-28 p-2 z-10 -top-8 shadow-lg hover:shadow-xl transition">
-            <div tw="rounded-full bg-black w-full h-full overflow-auto">
-                <img src="https://rairaksa.github.io/assets/img/rai.jpg">
-            </div>
-        </div>
-        <label tw="font-bold text-gray-100 text-lg">
-            Rai Raksa Muhamad
-        </label>
-        <p tw="text-center text-gray-200 mt-2 leading-relaxed">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-        </p>
-
-    </div>
-</div>
-*/
