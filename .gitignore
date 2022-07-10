@@ -14,6 +14,8 @@ bower_components
 
 *.sublime*
 
+content/blog/pending
+
 psd
 thumb
 sketch

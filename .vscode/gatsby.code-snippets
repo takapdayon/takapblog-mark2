@@ -38,5 +38,10 @@
       "---\n"
     ],
     "description": ""
+  },
+  "url": {
+    "prefix": "url",
+    "body": ["[$1]($2)"],
+    "description": ""
   }
 }
