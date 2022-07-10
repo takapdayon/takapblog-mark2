@@ -126,7 +126,7 @@ class AwsCdkVpnStack(Stack):
 
 VPC, VPN等CDKで作成に困った際は[こちら](https://docs.aws.amazon.com/cdk/api/v2/python/aws_cdk.aws_ec2/ClientVpnEndpoint.html?highlight=clientvpnendpoint#clientvpnendpoint)と[こちら](https://github.com/aws-samples/aws-cdk-examples/tree/master/python)を参考に作成しました
 
-今回自分用のVPNかつ、全通信をインターネットに向けるだけなので、routing部分で全通信を指定のサブネットに流すように設定しましたが、awsリソースにVPNを用いてアクセスさせたい。当の場合はルーティング等をしっかりと設定してください
+今回自分用のVPNかつ、全通信をインターネットに向けるだけなので、routing部分で全通信を指定のサブネットに流すように設定しましたが、awsリソースにVPNを用いてアクセスさせたい。等の場合はルーティング等をしっかりと設定してください
 
 また、ClientVpnEndpointのsplit_tunnelはFalseに設定します。Trueにした場合インターネット側通信がVPNトンネルを通らなくなるroutingになるようです(ただ、夢系で言えばTrueにして、特定の通信のみのroutingを追加したほうが良いと思いますが、そんな根気はないのでやりません)
 
@@ -197,8 +197,6 @@ arn:aws:cloudformation:ap-northeast-1:576272532983:stack/AwsCdkVpnStack/xxxxxxxx
 ```
 
 結構デプロイに時間かかるなぁと...
-
-
 
 ## Open VPN接続
 最後に、client vpnエンドポイントのクライアント設定のダウンロードを行い、Open VPNの設定に記述します
