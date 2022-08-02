@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { graphql, Link, PageProps } from 'gatsby';
-import TagCard from './atom/tagCard';
-import { getPathfromTag } from '../utils/utils';
-import { takeTagImage } from '../utils/tagData';
+import TagCard from '../atom/tagCard';
+import { getPathfromTag } from '../../utils/utils';
+import { takeTagImage } from '../../utils/tagData';
 import 'twin.macro';
 
 const TagList: React.FC<Pick<GatsbyTypes.AllTagsQuery, 'allMdx'>> = ({

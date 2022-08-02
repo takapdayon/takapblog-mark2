@@ -4,8 +4,8 @@ import { FaHome } from '@react-icons/all-files/fa/FaHome';
 import * as React from 'react';
 import 'twin.macro';
 
-import FooterIcon from './atom/footerIcon';
-import ContainerWrapper from './containerWrapper';
+import FooterIcon from '../atom/footerIcon';
+import ContainerWrapper from '../wrapper/containerWrapper';
 
 const Header: React.FC = () => {
   return (

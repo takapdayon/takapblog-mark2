@@ -2,7 +2,7 @@ import * as React from 'react';
 import { IconType } from '@react-icons/all-files';
 import 'twin.macro';
 import tw from 'twin.macro';
-import FlameWrapper from '../flameWrapper';
+import FlameWrapper from '../wrapper/flameWrapper';
 
 const TagCard: React.FC<Props> = ({ Icon, name, count, size = 100 }) => {
   return (

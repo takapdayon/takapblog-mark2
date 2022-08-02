@@ -3,17 +3,17 @@ import { graphql, PageProps } from 'gatsby';
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { TocItems } from '../components/chapterList';
-import PrevAndNextBlog from '../components/prevAndNextBlog';
+import { TocItems } from '../components/moleculres/chapterList';
+import PrevAndNextBlog from '../components/organisms/prevAndNextBlog';
 import Layout from '../layouts/layout';
-import ChapterList from '../components/chapterList';
+import ChapterList from '../components/moleculres/chapterList';
 import ArticleComponents from './articleComponents';
 import 'twin.macro';
 import tw from 'twin.macro';
-import TagsElementWrapper from '../components/tagsElementWrapper';
-import ContainerWrapper from '../components/containerWrapper';
-import FlameWrapper from '../components/flameWrapper';
-import ProfileCard from '../components/profileCard';
+import TagsElementWrapper from '../components/wrapper/tagsElementWrapper';
+import ContainerWrapper from '../components/wrapper/containerWrapper';
+import FlameWrapper from '../components/wrapper/flameWrapper';
+import ProfileCard from '../components/moleculres/profileCard';
 
 type tableOfContentsType = {
   items: TocItems[];

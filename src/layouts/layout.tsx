@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import * as React from 'react';
 import { useSiteMetadata } from '../utils/utils';
-import Footer from '../components/footer';
-import Header from '../components/header';
+import Footer from '../components/organisms/footer';
+import Header from '../components/organisms/header';
 import 'twin.macro';
 import tw from 'twin.macro';
 
