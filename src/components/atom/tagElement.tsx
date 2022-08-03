@@ -5,19 +5,6 @@ import { getPathfromTag } from '../../utils/utils';
 import 'twin.macro';
 import tw from 'twin.macro';
 
-const TagElement: React.FC<Props> = ({ tagName, size = 10 }) => {
-  return (
-    <WrapBack>
-      <TagWrapper>
-        <Link to={getPathfromTag(tagName)}>
-          <FaTag size={size} />
-          <TextSpan>{tagName}</TextSpan>
-        </Link>
-      </TagWrapper>
-    </WrapBack>
-  );
-};
-
 type Props = {
   tagName: string;
   size?: number;
@@ -34,5 +21,18 @@ const WrapBack = tw.div`
 const TagWrapper = tw.div`
   flex items-center text-xs lowercase
 `;
+
+const TagElement: React.FC<Props> = ({ tagName, size = 10 }) => {
+  return (
+    <WrapBack>
+      <TagWrapper>
+        <Link to={getPathfromTag(tagName)}>
+          <FaTag size={size} />
+          <TextSpan>{tagName}</TextSpan>
+        </Link>
+      </TagWrapper>
+    </WrapBack>
+  );
+};
 
 export default TagElement;
