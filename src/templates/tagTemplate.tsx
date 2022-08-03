@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { graphql, PageProps } from 'gatsby';
 import Layout from '../layouts/layout';
-import CardList from '../components/cardList';
+import CardList from '../components/organisms/cardList';
 import { FaTag } from '@react-icons/all-files/fa/FaTag';
 import 'twin.macro';
 import tw from 'twin.macro';
-import ContainerWrapper from '../components/containerWrapper';
+import ContainerWrapper from '../components/wrapper/containerWrapper';
 
 const TagTemplate: React.VFC<
   PageProps<GatsbyTypes.TagDataQuery, pageContext>

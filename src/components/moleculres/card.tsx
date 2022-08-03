@@ -3,8 +3,8 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import { Link } from 'gatsby';
 import 'twin.macro';
 import tw from 'twin.macro';
-import TagsElementWrapper from './tagsElementWrapper';
-import FlameWrapper from './flameWrapper';
+import TagsElementWrapper from '../wrapper/tagsElementWrapper';
+import FlameWrapper from '../wrapper/flameWrapper';
 
 const Card: React.FC<Props> = props => {
   const { title, image, date, description, tags, path } = props;

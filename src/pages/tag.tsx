@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { graphql, PageProps } from 'gatsby';
 import Layout from '../layouts/layout';
-import TagList from '../components/tagList';
-import ContainerWrapper from '../components/containerWrapper';
+import TagList from '../components/organisms/tagList';
+import ContainerWrapper from '../components/wrapper/containerWrapper';
 
 const TagPage: React.VFC<PageProps<GatsbyTypes.AllTagsQuery>> = ({ data }) => {
   return (

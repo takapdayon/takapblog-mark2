@@ -1,6 +1,6 @@
 import * as React from 'react';
 import 'twin.macro';
-import ShortCard from './shortCard';
+import ShortCard from '../moleculres/shortCard';
 
 const PrevAndNextBlog: React.FC<Props> = ({ next, previous }) => {
   const pathNext = next?.slug;

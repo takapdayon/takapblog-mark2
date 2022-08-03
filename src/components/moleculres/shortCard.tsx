@@ -3,7 +3,7 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import * as React from 'react';
 import 'twin.macro';
 import tw from 'twin.macro';
-import FlameWrapper from './flameWrapper';
+import FlameWrapper from '../wrapper/flameWrapper';
 
 const ShortCard: React.FC<Props> = ({ mdx }) => {
   const title = mdx?.frontmatter?.title;

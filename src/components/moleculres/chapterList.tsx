@@ -1,7 +1,7 @@
 import * as React from 'react';
 import 'twin.macro';
 import tw from 'twin.macro';
-import FlameWrapper from './flameWrapper';
+import FlameWrapper from '../wrapper/flameWrapper';
 
 type ItemsProps = {
   tableOfContents: TocItems[];

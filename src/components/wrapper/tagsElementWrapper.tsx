@@ -1,7 +1,7 @@
 import * as React from 'react';
 import 'twin.macro';
 import tw from 'twin.macro';
-import TagElement from './atom/tagElement';
+import TagElement from '../atom/tagElement';
 
 const TagsElementWrapper: React.FC<Props> = ({ tags }) => {
   return (

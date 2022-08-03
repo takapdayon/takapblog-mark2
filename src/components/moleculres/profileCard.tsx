@@ -1,11 +1,11 @@
 import * as React from 'react';
 import 'twin.macro';
 import tw from 'twin.macro';
-import AvatarIcon from './atom/avatarIcon';
-import FlameWrapper from './flameWrapper';
+import AvatarIcon from '../atom/avatarIcon';
+import FlameWrapper from '../wrapper/flameWrapper';
 import { FaTwitter } from '@react-icons/all-files/fa/FaTwitter';
 import { FaGithub } from '@react-icons/all-files/fa/FaGithub';
-import FooterIcon from './atom/footerIcon';
+import FooterIcon from '../atom/footerIcon';
 
 const ProfileCard: React.FC<Props> = ({}) => {
   const icons = [

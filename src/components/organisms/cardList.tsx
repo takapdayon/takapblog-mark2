@@ -1,4 +1,4 @@
-import Card from './card';
+import Card from '../moleculres/card';
 import * as React from 'react';
 import 'twin.macro';
 

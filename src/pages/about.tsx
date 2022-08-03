@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Layout from '../layouts/layout';
 import 'twin.macro';
-import ContainerWrapper from '../components/containerWrapper';
+import ContainerWrapper from '../components/wrapper/containerWrapper';
 
 const AboutPage = () => {
   return (

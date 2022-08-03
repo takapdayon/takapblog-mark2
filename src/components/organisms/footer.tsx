@@ -5,8 +5,8 @@ import * as React from 'react';
 import 'twin.macro';
 import tw from 'twin.macro';
 
-import FooterIcon from './atom/footerIcon';
-import ContainerWrapper from './containerWrapper';
+import FooterIcon from '../atom/footerIcon';
+import ContainerWrapper from '../wrapper/containerWrapper';
 
 const Footer: React.FC = () => {
   const icons = [
