@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { graphql, Link, PageProps } from 'gatsby';
-import TagCard from '../atom/tagCard';
+import TagCard from '../moleculres/tagCard';
 import { getPathfromTag } from '../../utils/utils';
 import { takeTagImage } from '../../utils/tagData';
 import 'twin.macro';

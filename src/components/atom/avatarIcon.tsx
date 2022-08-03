@@ -1,7 +1,6 @@
 import * as React from 'react';
 import 'twin.macro';
 import { StaticImage } from 'gatsby-plugin-image';
-import tw from 'twin.macro';
 
 const AvatarIcon: React.FC = () => {
   return (
