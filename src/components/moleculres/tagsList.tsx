@@ -3,7 +3,15 @@ import 'twin.macro';
 import tw from 'twin.macro';
 import TagElement from '../atom/tagElement';
 
-const TagsElementWrapper: React.FC<Props> = ({ tags }) => {
+type Props = {
+  tags: GatsbyTypes.Maybe<readonly GatsbyTypes.Maybe<string>[]>;
+};
+
+const TagsWrapper = tw.div`
+  inline-flex justify-between
+`;
+
+const TagsList: React.FC<Props> = ({ tags }) => {
   return (
     <TagsWrapper>
       {tags &&
@@ -14,12 +22,4 @@ const TagsElementWrapper: React.FC<Props> = ({ tags }) => {
   );
 };
 
-type Props = {
-  tags: GatsbyTypes.Maybe<readonly GatsbyTypes.Maybe<string>[]>;
-};
-
-const TagsWrapper = tw.div`
-  inline-flex justify-between
-`;
-
-export default TagsElementWrapper;
+export default TagsList;

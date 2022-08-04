@@ -5,7 +5,7 @@ import { getPathfromTag } from '../../utils/utils';
 import { takeTagImage } from '../../utils/tagData';
 import 'twin.macro';
 
-const TagList: React.FC<Pick<GatsbyTypes.AllTagsQuery, 'allMdx'>> = ({
+const TagCardsList: React.FC<Pick<GatsbyTypes.AllTagsQuery, 'allMdx'>> = ({
   allMdx,
 }) => {
   const tags = allMdx.group;
@@ -28,4 +28,4 @@ const TagList: React.FC<Pick<GatsbyTypes.AllTagsQuery, 'allMdx'>> = ({
   );
 };
 
-export default TagList;
+export default TagCardsList;
