@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { Link } from 'gatsby';
-import TagsElementWrapper from '../wrapper/tagsElementWrapper';
+import TagsElementWrapper from './tagsList';
 import FlameWrapper from '../wrapper/flameWrapper';
 import 'twin.macro';
 import tw from 'twin.macro';

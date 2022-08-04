@@ -10,7 +10,7 @@ import ChapterList from '../components/moleculres/chapterList';
 import ArticleComponents from './articleComponents';
 import 'twin.macro';
 import tw from 'twin.macro';
-import TagsElementWrapper from '../components/wrapper/tagsElementWrapper';
+import TagsElementWrapper from '../components/moleculres/tagsList';
 import ContainerWrapper from '../components/wrapper/containerWrapper';
 import FlameWrapper from '../components/wrapper/flameWrapper';
 import ProfileCard from '../components/moleculres/profileCard';
