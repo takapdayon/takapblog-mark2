@@ -12,6 +12,9 @@
       "import * as React from 'react';",
       "import 'twin.macro';",
       "import tw from 'twin.macro';\n",
+      "type Props = {",
+      "}\n",
+      "const $3 = tw.div`\n`;\n",
       "const $1: React.FC<Props> = ({ $2 }) => {",
       "  return (",
       "    <$3>",
@@ -19,9 +22,6 @@
       "    </$3>",
       "  );",
       "};\n",
-      "type Props = {",
-      "}\n",
-      "const $3 = tw.div`\n`;\n",
       "export default $1;"
     ],
     "description": ""
