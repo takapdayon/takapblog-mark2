@@ -7,6 +7,7 @@ import tw from 'twin.macro';
 
 import FooterIcon from '../atom/footerIcon';
 import ContainerWrapper from '../wrapper/containerWrapper';
+import IconList from '../moleculres/iconList';
 
 const Footer: React.FC = () => {
   const icons = [
@@ -24,15 +25,7 @@ const Footer: React.FC = () => {
     <footer tw="mt-10">
       <ContainerWrapper>
         <div tw="my-3 pt-3">
-          <ul tw="flex justify-center list-none">
-            {icons.map((icon, i) => {
-              return (
-                <li key={i} tw="mx-4">
-                  <FooterIcon Icon={icon.iconName} to={icon.uri} />
-                </li>
-              );
-            })}
-          </ul>
+          <IconList icons={icons} />
         </div>
         <hr tw="border-gray-700" />
         <CopyRightFooter>
