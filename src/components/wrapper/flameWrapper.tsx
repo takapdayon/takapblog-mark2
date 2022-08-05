@@ -16,9 +16,9 @@ const FlameWrapper: React.FC<Props> = ({ hoverAction = false, children }) => {
   return (
     <>
       {hoverAction ? (
-        <WrapFlame>{children}</WrapFlame>
-      ) : (
         <WrapFlameWithHover>{children}</WrapFlameWithHover>
+      ) : (
+        <WrapFlame>{children}</WrapFlame>
       )}
     </>
   );
