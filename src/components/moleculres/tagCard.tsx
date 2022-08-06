@@ -3,12 +3,22 @@ import { IconType } from '@react-icons/all-files';
 import 'twin.macro';
 import tw from 'twin.macro';
 import FlameWrapper from '../wrapper/flameWrapper';
+import Icon from '../atom/icon';
 
-const TagCard: React.FC<Props> = ({ Icon, name, count, size = 100 }) => {
+type Props = {
+  name: string;
+  count: number;
+  size?: number;
+};
+
+const CardConstruct = tw.div`
+`;
+
+const TagCard: React.FC<Props> = ({ name, count, size = 100 }) => {
   return (
     <FlameWrapper hoverAction={true}>
       <div tw="my-2 flex flex-col justify-center items-center">
-        <Icon color={'#172b4d'} size={size} />
+        <Icon iconName={name} color={'#172b4d'} size={size} />
       </div>
       <div tw="text-center">
         <p tw="text-xl font-bold">{name}</p>
@@ -16,16 +26,6 @@ const TagCard: React.FC<Props> = ({ Icon, name, count, size = 100 }) => {
       </div>
     </FlameWrapper>
   );
-};
-
-const CardConstruct = tw.div`
-`;
-
-type Props = {
-  Icon: IconType;
-  name: string;
-  count: number;
-  size?: number;
 };
 
 export default TagCard;

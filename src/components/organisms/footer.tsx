@@ -1,23 +1,23 @@
-import { FaTwitter } from '@react-icons/all-files/fa/FaTwitter';
-import { FaGithub } from '@react-icons/all-files/fa/FaGithub';
-
 import * as React from 'react';
 import 'twin.macro';
 import tw from 'twin.macro';
 
-import FooterIcon from '../atom/footerIcon';
 import ContainerWrapper from '../wrapper/containerWrapper';
 import IconList from '../moleculres/iconList';
 
+const CopyRightFooter = tw.div`
+  flex justify-center mt-3 pb-3
+`;
+
 const Footer: React.FC = () => {
-  const icons = [
+  const footerElement = [
     {
-      iconName: FaTwitter,
-      uri: 'https://twitter.com/takapdayon',
+      name: 'twitter',
+      to: 'https://twitter.com/takapdayon',
     },
     {
-      iconName: FaGithub,
-      uri: 'https://github.com/takapdayon',
+      name: 'github',
+      to: 'https://github.com/takapdayon',
     },
   ];
 
@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
     <footer tw="mt-10">
       <ContainerWrapper>
         <div tw="my-3 pt-3">
-          <IconList icons={icons} />
+          <IconList icons={footerElement} />
         </div>
         <hr tw="border-gray-700" />
         <CopyRightFooter>
@@ -35,9 +35,5 @@ const Footer: React.FC = () => {
     </footer>
   );
 };
-
-const CopyRightFooter = tw.div`
-  flex justify-center mt-3 pb-3
-`;
 
 export default Footer;
