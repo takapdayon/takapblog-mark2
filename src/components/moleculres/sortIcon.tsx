@@ -10,13 +10,13 @@ type Props = {
   }[];
 };
 
-const WrapIcon = tw.div`
-  flex justify-center list-none
+const WrapIcons = tw.ul`
+  flex justify-center list-none items-center
 `;
 
-const IconList: React.FC<Props> = ({ icons }) => {
+const SortIcon: React.FC<Props> = ({ icons }) => {
   return (
-    <WrapIcon>
+    <WrapIcons>
       {icons.map((icon, i) => {
         return (
           <li key={i} tw="mx-4">
@@ -24,8 +24,8 @@ const IconList: React.FC<Props> = ({ icons }) => {
           </li>
         );
       })}
-    </WrapIcon>
+    </WrapIcons>
   );
 };
 
-export default IconList;
+export default SortIcon;

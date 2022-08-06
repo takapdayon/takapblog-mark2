@@ -3,7 +3,7 @@ import 'twin.macro';
 import tw from 'twin.macro';
 import AvatarIcon from '../atom/avatarIcon';
 import FlameWrapper from '../wrapper/flameWrapper';
-import IconList from './iconList';
+import SortIcon from './sortIcon';
 
 type Props = {};
 
@@ -50,7 +50,7 @@ const ProfileCard: React.FC<Props> = ({}) => {
         <NameLabel>{name}</NameLabel>
         <IntroP>{introduce}</IntroP>
         <WrapIconList>
-          <IconList icons={icons} />
+          <SortIcon icons={icons} />
         </WrapIconList>
       </Profile>
     </FlameWrapper>

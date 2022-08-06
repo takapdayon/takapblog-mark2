@@ -3,7 +3,7 @@ import 'twin.macro';
 import tw from 'twin.macro';
 
 import ContainerWrapper from '../wrapper/containerWrapper';
-import IconList from '../moleculres/iconList';
+import SortIcon from '../moleculres/sortIcon';
 
 const CopyRightFooter = tw.div`
   flex justify-center mt-3 pb-3
@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
     <footer tw="mt-10">
       <ContainerWrapper>
         <div tw="my-3 pt-3">
-          <IconList icons={footerElement} />
+          <SortIcon icons={footerElement} />
         </div>
         <hr tw="border-gray-700" />
         <CopyRightFooter>
