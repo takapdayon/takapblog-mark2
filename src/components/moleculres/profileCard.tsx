@@ -3,9 +3,6 @@ import 'twin.macro';
 import tw from 'twin.macro';
 import AvatarIcon from '../atom/avatarIcon';
 import FlameWrapper from '../wrapper/flameWrapper';
-import { FaTwitter } from '@react-icons/all-files/fa/FaTwitter';
-import { FaGithub } from '@react-icons/all-files/fa/FaGithub';
-import FooterIcon from '../atom/footerIcon';
 import IconList from './iconList';
 
 type Props = {};
@@ -31,12 +28,12 @@ const WrapIconList = tw.div`my-5`;
 const ProfileCard: React.FC<Props> = ({}) => {
   const icons = [
     {
-      iconName: FaTwitter,
-      uri: 'https://twitter.com/takapdayon',
+      name: 'twitter',
+      to: 'https://twitter.com/takapdayon',
     },
     {
-      iconName: FaGithub,
-      uri: 'https://github.com/takapdayon',
+      name: 'github',
+      to: 'https://github.com/takapdayon',
     },
   ];
 
