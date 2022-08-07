@@ -1,10 +1,11 @@
 import * as React from 'react';
+import { tableOfContentsType } from 'src/templates/blogTemplate';
 import 'twin.macro';
 import tw from 'twin.macro';
 import FlameWrapper from '../wrapper/flameWrapper';
 
 type ItemsProps = {
-  tableOfContents: TocItems[];
+  tableOfContents?: TocItems[];
   depth: number;
 };
 
@@ -17,7 +18,7 @@ export type TocItems = {
 const Items: React.FC<ItemsProps> = ({ tableOfContents, depth }) => {
   return (
     <ul>
-      {tableOfContents.map((item, i) => {
+      {tableOfContents?.map((item, i) => {
         return (
           <div key={i}>
             <li
@@ -40,21 +41,17 @@ const Items: React.FC<ItemsProps> = ({ tableOfContents, depth }) => {
   );
 };
 
-const ChapterList: React.FC<Props> = ({ tableOfContents }) => {
+const ChapterList: React.FC<tableOfContentsType> = ({ items }) => {
   return (
     <FlameWrapper>
       <div tw="p-5">
         <p tw="text-2xl mb-3">項目</p>
         <div tw="ml-2">
-          <Items tableOfContents={tableOfContents} depth={0} />
+          <Items tableOfContents={items} depth={0} />
         </div>
       </div>
     </FlameWrapper>
   );
-};
-
-type Props = {
-  tableOfContents: TocItems[];
 };
 
 export default ChapterList;
