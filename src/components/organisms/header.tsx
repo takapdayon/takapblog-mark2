@@ -3,6 +3,7 @@ import 'twin.macro';
 
 import ContainerWrapper from '../wrapper/containerWrapper';
 import Icon from '../atom/icon';
+import SortIcon from '../moleculres/sortIcon';
 
 const Header: React.FC = () => {
   const headerElement = [
@@ -23,17 +24,7 @@ const Header: React.FC = () => {
   return (
     <ContainerWrapper>
       <div tw="flex flex-col md:flex-row items-center justify-between">
-        <div tw="">
-          <ul tw="flex justify-center list-none items-center">
-            {headerElement.map(e => {
-              return (
-                <li tw="mx-4">
-                  <Icon iconName={e.name} to={e.to} />
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+        <SortIcon icons={headerElement} />
       </div>
     </ContainerWrapper>
   );

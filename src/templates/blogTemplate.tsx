@@ -6,18 +6,19 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { TocItems } from '../components/moleculres/chapterList';
 import PrevAndNextBlog from '../components/organisms/prevAndNextBlog';
 import Layout from '../layouts/layout';
-import ChapterList from '../components/moleculres/chapterList';
 import ArticleComponents from './articleComponents';
 import 'twin.macro';
 import tw from 'twin.macro';
 import TagsElementWrapper from '../components/moleculres/tagsList';
 import ContainerWrapper from '../components/wrapper/containerWrapper';
 import FlameWrapper from '../components/wrapper/flameWrapper';
-import ProfileCard from '../components/moleculres/profileCard';
+import BlogSideCards from '../components/organisms/blogSideCards';
 
-type tableOfContentsType = {
-  items: TocItems[];
-};
+export type tableOfContentsType =
+  | {
+      items?: TocItems[];
+    }
+  | undefined;
 
 type pageContext = {
   next: GatsbyTypes.Maybe<GatsbyTypes.Mdx>;
@@ -33,7 +34,7 @@ const BlogTemplate: React.VFC<
   const title = data.mdx?.frontmatter?.title || 'title';
   const date = data.mdx?.frontmatter?.date!;
   const tags = data.mdx?.frontmatter?.tags!;
-  const tableOfContents: tableOfContentsType = data.mdx?.tableOfContents!;
+  const tableOfContents: tableOfContentsType = data.mdx?.tableOfContents;
   const next = pageContext.next;
   const previous = pageContext.previous;
   return (
@@ -65,12 +66,7 @@ const BlogTemplate: React.VFC<
             </div>
           </div>
           <div tw="hidden lg:(col-span-4 block) xl:col-span-3">
-            <div tw="sticky top-2">
-              <div tw="mb-5">
-                <ProfileCard></ProfileCard>
-              </div>
-              <ChapterList tableOfContents={tableOfContents.items} />
-            </div>
+            <BlogSideCards items={tableOfContents?.items}></BlogSideCards>
           </div>
         </div>
       </ContainerWrapper>
